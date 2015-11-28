@@ -1,4 +1,4 @@
-defmodule Geo2DTypes.Point2 do
+defmodule Geo2d.Point2 do
 
   @type point2 :: { float, float }
 

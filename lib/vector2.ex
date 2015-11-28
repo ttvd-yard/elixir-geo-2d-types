@@ -1,4 +1,4 @@
-defmodule Geo2DTypes.Vector2 do
+defmodule Geo2d.Vector2 do
 
   @type vector2 :: { float, float }
 
