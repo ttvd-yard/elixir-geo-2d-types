@@ -9,7 +9,9 @@ defmodule Geo2d.Point2 do
   def create(x, y), do: {x, y}
 
   @spec create([float]) :: point2
-  def create(a) do
+  @spec create(float) :: point2
+  def create(a) when is_float(a), do: {a, a}
+  def create(a) when is_list(a) do
     [x, y | _] = a
     {x, y}
   end
