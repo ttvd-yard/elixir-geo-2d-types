@@ -23,10 +23,31 @@ defmodule Geo2d.Vector2 do
   def identity(), do: {1.0, 1.0}
 
   @spec x(vector2) :: float
-  def x(p), do: elem(p, 0)
+  def x(v), do: elem(v, 0)
 
   @spec y(vector2) :: float
-  def y(p), do: elem(p, 1)
+  def y(v), do: elem(v, 1)
+
+  @spec xx(vector2) :: vector2
+  def xx(v) do
+    {x, _y} = v
+    {x, x}
+  end
+
+  @spec yy(vector2) :: vector2
+  def yy(v) do
+    {_x, y} = v
+    {y, y}
+  end
+
+  @spec xy(vector2) :: vector2
+  def xy(v), do: v
+
+  @spec yx(vector2) :: vector2
+  def yx(v) do
+    {x, y} = v
+    {y, x}
+  end
 
   @spec magnitude_squared(vector2) :: float
   def magnitude_squared(v) do
