@@ -2,7 +2,7 @@ defmodule Geo2d.Vector2 do
 
   import Geo2d.Constants
 
-  @type vector2 :: { float, float }
+  @type vector2 :: {float, float}
 
   @spec create() :: vector2
   def create(), do: {0.0, 0.0}

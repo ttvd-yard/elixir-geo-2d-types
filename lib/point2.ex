@@ -1,6 +1,6 @@
 defmodule Geo2d.Point2 do
 
-  @type point2 :: { float, float }
+  @type point2 :: {float, float}
 
   @spec create() :: point2
   def create(), do: {0.0, 0.0}
