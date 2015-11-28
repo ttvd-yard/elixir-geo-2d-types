@@ -14,6 +14,9 @@ defmodule Geo2d.Point2 do
     {x, y}
   end
 
+  @spec zero() :: point2
+  def zero(), do: create()
+
   @spec x(point2) :: float
   def x(p), do: elem(p, 0)
 
