@@ -41,6 +41,10 @@ defmodule Geo2d.Vector2 do
   @spec yx(vector2) :: vector2
   def yx({x, y}), do: {y, x}
 
+  @spec at(vector2, integer) :: float
+  def at({x, _y}, 0), do: x
+  def at({_x, y}, 1), do: y
+
   @spec magnitude_squared(vector2) :: float
   def magnitude_squared({x, y}), do: x * x + y * y
 
