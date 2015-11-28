@@ -1,4 +1,4 @@
-defmodule Geo2dTypes.Mixfile do
+defmodule Geo2DTypes.Mixfile do
   use Mix.Project
 
   def project do
