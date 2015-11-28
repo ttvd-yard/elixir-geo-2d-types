@@ -20,9 +20,15 @@ defmodule Geo2d.Point2 do
   def zero(), do: create()
 
   @spec x(point2) :: float
-  def x(p), do: elem(p, 0)
+  def x(p) do
+    {x, _y} = p
+    x
+  end
 
   @spec y(point2) :: float
-  def y(p), do: elem(p, 1)
+  def y(p) do
+    {_x, y} = p
+    y
+  end
 
 end

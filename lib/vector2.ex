@@ -25,10 +25,16 @@ defmodule Geo2d.Vector2 do
   def identity(), do: {1.0, 1.0}
 
   @spec x(vector2) :: float
-  def x(v), do: elem(v, 0)
+  def x(v) do
+    {x, _y} = v
+    x
+  end
 
   @spec y(vector2) :: float
-  def y(v), do: elem(v, 1)
+  def y(v) do
+    {_x, y} = v
+    y
+  end
 
   @spec xx(vector2) :: vector2
   def xx(v) do
