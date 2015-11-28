@@ -84,6 +84,9 @@ defmodule Geo2d.Vector2 do
   @spec dot(vector2, vector2) :: float
   def dot({x1, y1}, {x2, y2}), do: x1 * x2 + y1 * y2
 
+  @spec cross(vector2, vector2) :: float
+  def cross({x1, y1}, {x2, y2}), do: x1 * y2 - y1 * x2
+
   @spec normalize(vector2) :: vector2
   def normalize({0.0, 0.0}) do
    raise ArithmeticError, message: "Zero vector normalization"
