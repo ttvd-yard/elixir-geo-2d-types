@@ -41,8 +41,6 @@ defmodule Geo2d.Point2 do
   def at({_x, y}, 1), do: y
 
   @spec invert(point2) :: point2
-  def invert({x, y}) do
-    {-x, -y}
-  end
+  def invert({x, y}), do: {-x, -y}
 
 end

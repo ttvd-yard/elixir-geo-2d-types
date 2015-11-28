@@ -94,7 +94,5 @@ defmodule Geo2d.Vector2 do
   end
 
   @spec invert(vector2) :: vector2
-  def invert({x, y}) do
-    {-x, -y}
-  end
+  def invert({x, y}), do: {-x, -y}
 end
