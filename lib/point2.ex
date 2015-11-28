@@ -62,5 +62,5 @@ defmodule Geo2d.Point2 do
     y = y1 - y2
     x * x + y * y
   end
-
+  
 end
