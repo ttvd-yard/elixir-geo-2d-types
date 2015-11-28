@@ -43,4 +43,11 @@ defmodule Geo2d.Point2 do
   @spec invert(point2) :: point2
   def invert({x, y}), do: {-x, -y}
 
+  @spec rotate(point2, float) :: point2
+  def rotate({x, y}, angle) do
+    angle_cos = :math.cos(angle)
+    angle_sin = :math.sin(angle)
+    {x * angle_cos + y * angle_sin, x * angle_sin - y * angle_cos}
+  end
+  
 end
