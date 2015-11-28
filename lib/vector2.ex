@@ -13,10 +13,9 @@ defmodule Geo2d.Vector2 do
   @spec create([float]) :: vector2
   @spec create(float) :: vector2
   def create(a) when is_float(a), do: {a, a}
-  def create(a) when is_list(a) do
-    [x, y | _] = a
-    {x, y}
-  end
+  def create([]), do: {0.0, 0.0}
+  def create([x, y|_]), do: {x, y}
+  def create([x|_]), do: {x, x}
 
   @spec zero() :: vector2
   def zero(), do: create()
@@ -25,66 +24,37 @@ defmodule Geo2d.Vector2 do
   def identity(), do: {1.0, 1.0}
 
   @spec x(vector2) :: float
-  def x(v) do
-    {x, _y} = v
-    x
-  end
+  def x({x, _y}), do: x
 
   @spec y(vector2) :: float
-  def y(v) do
-    {_x, y} = v
-    y
-  end
+  def y({_x, y}), do: y
 
   @spec xx(vector2) :: vector2
-  def xx(v) do
-    {x, _y} = v
-    {x, x}
-  end
+  def xx({x, _y}), do: {x, x}
 
   @spec yy(vector2) :: vector2
-  def yy(v) do
-    {_x, y} = v
-    {y, y}
-  end
+  def yy({_x, y}), do: {y, y}
 
   @spec xy(vector2) :: vector2
   def xy(v), do: v
 
   @spec yx(vector2) :: vector2
-  def yx(v) do
-    {x, y} = v
-    {y, x}
-  end
+  def yx({x, y}), do: {y, x}
 
   @spec magnitude_squared(vector2) :: float
-  def magnitude_squared(v) do
-    {x, y} = v
-    x * x + y * y
-  end
+  def magnitude_squared({x, y}), do: x * x + y * y
 
   @spec magnitude(vector2) :: float
   def magnitude(v), do: :math.sqrt(magnitude_squared(v))
 
   @spec add(vector2, vector2) :: vector2
-  def add(v1, v2) do
-    {x1, y1} = v1
-    {x2, y2} = v2
-    {x1 + x2, y1 + y2}
-  end
+  def add({x1, y1}, {x2, y2}), do: {x1 + x2, y1 + y2}
 
   @spec sub(vector2, vector2) :: vector2
-  def sub(v1, v2) do
-    {x1, y1} = v1
-    {x2, y2} = v2
-    {x1 - x2, y1 - y2}
-  end
+  def sub({x1, y1}, {x2, y2}), do: {x1 - x2, y1 - y2}
 
   @spec scale(vector2, float) :: vector2
-  def scale(v, s) do
-    {x, y} = v
-    {x * s, y * s}
-  end
+  def scale({x, y}, s), do: {x * s, y * s}
 
   @spec is_zero(vector2) :: boolean
   def is_zero({0.0, 0.0}), do: true
@@ -95,8 +65,7 @@ defmodule Geo2d.Vector2 do
   def is_identity(_v), do: false
 
   @spec is_almost_zero(vector2) :: boolean
-  def is_almost_zero(v) do
-    {x, y} = v
+  def is_almost_zero({x, y}) do
 
     if :math.abs(x) < epsilon and :math.abs(y) < epsilon do
       true
@@ -106,11 +75,7 @@ defmodule Geo2d.Vector2 do
   end
 
   @spec dot(vector2, vector2) :: float
-  def dot(v1, v2) do
-    {x1, y1} = v1
-    {x2, y2} = v2
-    x1 * x2 + y1 * y2
-  end
+  def dot({x1, y1}, {x2, y2}), do: x1 * x2 + y1 * y2
 
   @spec normalize(vector2) :: vector2
   def normalize({0.0, 0.0}) do
@@ -125,8 +90,7 @@ defmodule Geo2d.Vector2 do
   end
 
   @spec invert(vector2) :: vector2
-  def invert(v) do
-    {x, y} = v
+  def invert({x, y}) do
     {-x, -y}
   end
 end
