@@ -88,6 +88,7 @@ defmodule Geo2d.Vector2 do
    raise ArithmeticError, message: "Zero vector normalization"
   end
 
+  @spec normalize(vector2) :: vector2
   def normalize(v) do
     {x, y} = v
     inv_len = 1.0 / magnitude(v)
