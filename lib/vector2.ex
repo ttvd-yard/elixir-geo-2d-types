@@ -55,6 +55,14 @@ defmodule Geo2d.Vector2 do
     {x * s, y * s}
   end
 
+  @spec is_zero(vector2) :: boolean
+  def is_zero({0.0, 0.0}), do: true
+  def is_zero(_v), do: false
+
+  @spec is_identity(vector2) :: boolean
+  def is_identity({1.0, 1.0}), do: true
+  def is_identity(_v), do: false
+
   @spec dot(vector2, vector2) :: float
   def dot(v1, v2) do
     {x1, y1} = v1
@@ -63,11 +71,13 @@ defmodule Geo2d.Vector2 do
   end
 
   @spec normalize(vector2) :: vector2
+  def normalize({0.0, 0.0}) do
+   raise ArithmeticError, message: "Zero vector normalization"
+  end
+
   def normalize(v) do
     {x, y} = v
     inv_len = 1.0 / magnitude(v)
     {x * inv_len, y * inv_len}
   end
-
-
 end
