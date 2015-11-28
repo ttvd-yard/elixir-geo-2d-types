@@ -87,8 +87,7 @@ defmodule Geo2d.Vector2 do
   end
 
   @spec normalize(vector2) :: vector2
-  def normalize(v) do
-    {x, y} = v
+  def normalize({x, y} = v) do
     inv_len = 1.0 / magnitude(v)
     {x * inv_len, y * inv_len}
   end
