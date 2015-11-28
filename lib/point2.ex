@@ -15,6 +15,9 @@ defmodule Geo2d.Point2 do
   def create([x, y|_]), do: {x, y}
   def create([x|_]), do: {x, x}
 
+  @spec to_list(point2) :: [float]
+  def to_list({x, y}), do: [x, y]
+
   @spec zero() :: point2
   def zero(), do: create()
 
@@ -49,5 +52,5 @@ defmodule Geo2d.Point2 do
     angle_sin = :math.sin(angle)
     {x * angle_cos + y * angle_sin, x * angle_sin - y * angle_cos}
   end
-  
+
 end

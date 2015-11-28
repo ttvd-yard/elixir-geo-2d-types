@@ -17,6 +17,9 @@ defmodule Geo2d.Vector2 do
   def create([x, y|_]), do: {x, y}
   def create([x|_]), do: {x, x}
 
+  @spec to_list(vector2) :: [float]
+  def to_list({x, y}), do: [x, y]
+
   @spec zero() :: vector2
   def zero(), do: create()
 
