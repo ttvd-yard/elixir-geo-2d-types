@@ -53,4 +53,14 @@ defmodule Geo2d.Point2 do
     {x * angle_cos + y * angle_sin, x * angle_sin - y * angle_cos}
   end
 
+  @spec distance_to(point2, point2) :: float
+  def distance_to(v1, v2), do: :math.sqrt(distance_to_squared(v1, v2))
+
+  @spec distance_to_squared(point2, point2) :: float
+  def distance_to_squared({x1, y1}, {x2, y2}) do
+    x = x1 - x2
+    y = y1 - y2
+    x * x + y * y
+  end
+
 end
