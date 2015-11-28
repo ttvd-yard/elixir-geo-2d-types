@@ -13,4 +13,11 @@ defmodule Geo2DTypes.Point2 do
     [x, y | _] = v
     {x, y}
   end
+
+  @spec x(point2) :: float
+  def x(p), do: elem(p, 0)
+
+  @spec y(point2) :: float
+  def y(p), do: elem(p, 1)
+
 end
