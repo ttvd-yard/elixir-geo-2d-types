@@ -10,8 +10,10 @@ defmodule Geo2d.Vector2 do
   @spec create(float, float) :: vector2
   def create(x, y), do: {x, y}
 
+  @spec create(vector2) :: vector2
   @spec create([float]) :: vector2
   @spec create(float) :: vector2
+  def create({x, y}), do: {x, y}
   def create(a) when is_float(a), do: {a, a}
   def create([]), do: {0.0, 0.0}
   def create([x, y|_]), do: {x, y}

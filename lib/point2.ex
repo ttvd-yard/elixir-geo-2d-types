@@ -8,8 +8,10 @@ defmodule Geo2d.Point2 do
   @spec create(float, float) :: point2
   def create(x, y), do: {x, y}
 
+  @spec create(point2) :: point2
   @spec create([float]) :: point2
   @spec create(float) :: point2
+  def create({x, y}), do: {x, y}
   def create(a) when is_float(a), do: {a, a}
   def create([]), do: {0.0, 0.0}
   def create([x, y|_]), do: {x, y}
