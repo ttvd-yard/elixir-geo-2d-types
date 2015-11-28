@@ -99,7 +99,7 @@ defmodule Geo2d.Vector2 do
   def project({_x, _y}, {0.0, 0.0}) do
     raise ArithmeticError, message: "Projection on zero vector"
   end
-  def project({_x1, _y1} = v1, {x2, y2} = v2) do
+  def project(v1, {x2, y2} = v2) do
     term = dot(v1, v2) / magnitude_squared(v2)
     {x2 * term, y2 * term}
   end
