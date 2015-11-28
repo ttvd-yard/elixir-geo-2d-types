@@ -94,4 +94,10 @@ defmodule Geo2d.Vector2 do
     inv_len = 1.0 / magnitude(v)
     {x * inv_len, y * inv_len}
   end
+
+  @spec invert(vector2) :: vector2
+  def invert(v) do
+    {x, y} = v
+    {-x, -y}
+  end
 end
