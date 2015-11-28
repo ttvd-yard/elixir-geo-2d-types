@@ -24,4 +24,16 @@ defmodule Geo2d.Point2 do
   @spec y(point2) :: float
   def y({_x, y}), do: y
 
+  @spec xx(point2) :: point2
+  def xx({x, _y}), do: {x, x}
+
+  @spec yy(point2) :: point2
+  def yy({_x, y}), do: {y, y}
+
+  @spec xy(point2) :: point2
+  def xy(v), do: v
+
+  @spec yx(point2) :: point2
+  def yx({x, y}), do: {y, x}
+
 end
