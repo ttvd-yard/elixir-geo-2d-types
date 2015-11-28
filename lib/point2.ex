@@ -9,8 +9,8 @@ defmodule Geo2DTypes.Point2 do
   def create(x, y), do: {x, y}
 
   @spec create([float]) :: point2
-  def create(v) do
-    [x, y | _] = v
+  def create(a) do
+    [x, y | _] = a
     {x, y}
   end
 
