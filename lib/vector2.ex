@@ -1,5 +1,7 @@
 defmodule Geo2d.Vector2 do
 
+  import Geo2d.Constants
+
   @type vector2 :: { float, float }
 
   @spec create() :: vector2
@@ -62,6 +64,17 @@ defmodule Geo2d.Vector2 do
   @spec is_identity(vector2) :: boolean
   def is_identity({1.0, 1.0}), do: true
   def is_identity(_v), do: false
+
+  @spec is_almost_zero(vector2) :: boolean
+  def is_almost_zero(v) do
+    {x, y} = v
+
+    if :math.abs(x) < epsilon and :math.abs(y) < epsilon do
+      true
+    end
+
+    false
+  end
 
   @spec dot(vector2, vector2) :: float
   def dot(v1, v2) do
