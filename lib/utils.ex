@@ -8,7 +8,7 @@ defmodule Geo2d.Utils do
   @spec is_zero(float) :: boolean
   def is_zero(f), do: :math.abs(f) < epsilon
 
-  @spec is_inf(float) :: boolean
-  def is_inf(f), do: :math.abs(f) == inf
+  @spec inf?(float) :: boolean
+  def inf?(f), do: :math.abs(f) == inf
 
 end

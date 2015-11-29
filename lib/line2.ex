@@ -36,7 +36,7 @@ defmodule Geo2d.Line2 do
   end
 
   @spec is_vertical(Geo2d.line2) :: boolean
-  def is_vertical(l), do: slope(l) |> is_inf
+  def is_vertical(l), do: slope(l) |> inf?
 
   @spec is_horizontal(Geo2d.line2) :: boolean
   def is_horizontal(l), do: slope(l) |> is_zero
