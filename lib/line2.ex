@@ -1,5 +1,7 @@
 defmodule Geo2d.Line2 do
 
+  import Geo2d.Constants
+
   @spec create() :: Geo2d.line2
   def create(), do: {0.0, 0.0, 0.0}
 
@@ -14,5 +16,22 @@ defmodule Geo2d.Line2 do
 
   @spec to_list(Geo2d.line2) :: [float]
   def to_list({a, b, c}), do: [a, b ,c]
+
+  @spec dx(Geo2d.line2) :: float
+  def dx({_a, b, _c}), do: b
+
+  @spec dy(Geo2d.line2) :: float
+  def dy({a, _b, _c}), do: -a
+
+  @spec slope(Geo2d.line2) :: float
+  def slope(l) do
+    d_x = dx(l)
+
+    if d_x == 0.0 do
+      inf
+    end
+
+    dy(l) / d_x
+  end
 
 end
