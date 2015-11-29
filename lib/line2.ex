@@ -1,5 +1,6 @@
 defmodule Geo2d.Line2 do
 
+  import Geo2d.Util
   import Geo2d.Constants
 
   @spec create() :: Geo2d.line2
@@ -27,7 +28,7 @@ defmodule Geo2d.Line2 do
   def slope(l) do
     d_x = dx(l)
 
-    if d_x == 0.0 do
+    if is_zero(d_x) do
       inf
     end
 
@@ -35,12 +36,12 @@ defmodule Geo2d.Line2 do
   end
 
   @spec is_vertical(Geo2d.line2) :: boolean
-  def is_vertical(l), do: slope(l) == inf
+  def is_vertical(l), do: slope(l) |> is_inf
 
   @spec is_horizontal(Geo2d.line2) :: boolean
-  def is_horizontal(l), do: slope(l) == 0.0
+  def is_horizontal(l), do: slope(l) |> is_zero
 
   @spec is_parallel_to(Geo2d.line2, Geo2d.line2) :: boolean
-  def is_parallel_to(l1, l2), do: slope(l1) == slope(l2)
+  def is_parallel_to(l1, l2), do: are_equal(slope(l1), slope(l2))
 
 end
