@@ -9,4 +9,7 @@ defmodule Geo2d.Line2 do
   @spec create(float, float, float) :: Geo2d.line2
   def create(a, b, c), do: {a, b, c}
 
+  @spec to_list(Geo2d.line2) :: [float]
+  def to_list({a, b, c}), do: [a, b ,c]
+  
 end
