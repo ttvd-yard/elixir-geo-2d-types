@@ -1,6 +1,6 @@
 defmodule Geo2d.Line2 do
 
-  import Geo2d.Util
+  import Geo2d.Utils
   import Geo2d.Constants
 
   @spec create() :: Geo2d.line2

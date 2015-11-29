@@ -1,4 +1,4 @@
-defmodule Geo2d.Util do
+defmodule Geo2d.Utils do
 
   import Geo2d.Constants
 
