@@ -44,4 +44,7 @@ defmodule Geo2d.Line2 do
   @spec are_parallel(Geo2d.line2, Geo2d.line2) :: boolean
   def are_parallel(l1, l2), do: are_equal(slope(l1), slope(l2))
 
+  @spec are_intersecting(Geo2d.line2, Geo2d.line2) :: boolean
+  def are_intersecting(l1, l2), do: not are_parallel(l1, l2)
+
 end
