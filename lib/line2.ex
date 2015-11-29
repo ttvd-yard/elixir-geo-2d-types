@@ -28,26 +28,26 @@ defmodule Geo2d.Line2 do
   def slope(l) do
     d_x = dx(l)
 
-    if is_zero(d_x) do
+    if zero?(d_x) do
       inf
     end
 
     dy(l) / d_x
   end
 
-  @spec is_vertical(Geo2d.line2) :: boolean
-  def is_vertical(l), do: slope(l) |> inf?
+  @spec vertical?(Geo2d.line2) :: boolean
+  def vertical?(l), do: slope(l) |> inf?
 
-  @spec is_horizontal(Geo2d.line2) :: boolean
-  def is_horizontal(l), do: slope(l) |> is_zero
+  @spec horizontal?(Geo2d.line2) :: boolean
+  def horizontal?(l), do: slope(l) |> zero?
 
-  @spec are_parallel(Geo2d.line2, Geo2d.line2) :: boolean
-  def are_parallel(l1, l2), do: are_equal(slope(l1), slope(l2))
+  @spec parallel?(Geo2d.line2, Geo2d.line2) :: boolean
+  def parallel?(l1, l2), do: equal?(slope(l1), slope(l2))
 
-  @spec are_intersecting(Geo2d.line2, Geo2d.line2) :: boolean
-  def are_intersecting(l1, l2), do: not are_parallel(l1, l2)
+  @spec intersecting?(Geo2d.line2, Geo2d.line2) :: boolean
+  def intersecting?(l1, l2), do: not parallel?(l1, l2)
 
   @spec contains_point(Geo2d.line2, Geo2d.point2) :: boolean
-  def contains_point({a, b, c}, {x, y}), do: is_zero(x * a + y * b + c)
+  def contains_point({a, b, c}, {x, y}), do: zero?(x * a + y * b + c)
 
 end
