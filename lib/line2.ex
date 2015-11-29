@@ -47,7 +47,7 @@ defmodule Geo2d.Line2 do
   @spec intersecting?(Geo2d.line2, Geo2d.line2) :: boolean
   def intersecting?(l1, l2), do: not parallel?(l1, l2)
 
-  @spec contains_point(Geo2d.line2, Geo2d.point2) :: boolean
-  def contains_point({a, b, c}, {x, y}), do: zero?(x * a + y * b + c)
+  @spec contains_point?(Geo2d.line2, Geo2d.point2) :: boolean
+  def contains_point?({a, b, c}, {x, y}), do: zero?(x * a + y * b + c)
 
 end
