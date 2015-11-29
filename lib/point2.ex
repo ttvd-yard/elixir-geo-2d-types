@@ -18,8 +18,8 @@ defmodule Geo2d.Point2 do
   @spec to_list(Geo2d.point2) :: [float]
   def to_list({x, y}), do: [x, y]
 
-  @spec are_equal(Geo2d.point2, Geo2d.point2) :: boolean
-  def are_equal({x1, y1}, {x2, y2}), do: are_equal(x1, x2) and are_equal(y1, y2)
+  @spec equal?(Geo2d.point2, Geo2d.point2) :: boolean
+  def equal?({x1, y1}, {x2, y2}), do: equal?(x1, x2) and equal?(y1, y2)
 
   @spec zero() :: Geo2d.point2
   def zero(), do: create()
