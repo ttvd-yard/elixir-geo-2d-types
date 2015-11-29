@@ -34,4 +34,10 @@ defmodule Geo2d.Line2 do
     dy(l) / d_x
   end
 
+  @spec is_vertical(Geo2d.line2) :: boolean
+  def is_vertical(l), do: slope(l) == inf
+
+  @spec is_horizontal(Geo2d.line2) :: boolean
+  def is_horizontal(l), do: slope(l) == 0.0
+
 end
