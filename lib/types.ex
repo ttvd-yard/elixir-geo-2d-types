@@ -1,6 +1,6 @@
 defmodule Geo2d do
 
-  require Record
+  #require Record
 
   #Record.defrecord :point2, x: 0.0, y: 0.0
   #@type point2 :: record(:point2, x: float, y: float)
