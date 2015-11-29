@@ -17,8 +17,8 @@ defmodule Geo2d.Vector2 do
   def create([x, y|_]), do: {x, y}
   def create([x|_]), do: {x, x}
 
-  @spec are_equal(Geo2d.vector2, Geo2d.vector2) :: boolean
-  def are_equal({x1, y1}, {x2, y2}), do: are_equal(x1, x2) and are_equal(y1, y2)
+  @spec equal?(Geo2d.vector2, Geo2d.vector2) :: boolean
+  def equal?({x1, y1}, {x2, y2}), do: equal?(x1, x2) and equal?(y1, y2)
 
   @spec to_list(Geo2d.vector2) :: [float]
   def to_list({x, y}), do: [x, y]
@@ -66,16 +66,16 @@ defmodule Geo2d.Vector2 do
   @spec scale(Geo2d.vector2, float) :: Geo2d.vector2
   def scale({x, y}, s), do: {x * s, y * s}
 
-  @spec is_zero(Geo2d.vector2) :: boolean
-  def is_zero({0.0, 0.0}), do: true
-  def is_zero(_v), do: false
+  @spec zero?(Geo2d.vector2) :: boolean
+  def zero?({0.0, 0.0}), do: true
+  def zero?(_v), do: false
 
-  @spec is_identity(Geo2d.vector2) :: boolean
-  def is_identity({1.0, 1.0}), do: true
-  def is_identity(_v), do: false
+  @spec identity?(Geo2d.vector2) :: boolean
+  def identity?({1.0, 1.0}), do: true
+  def identity?(_v), do: false
 
-  @spec is_almost_zero(Geo2d.vector2) :: boolean
-  def is_almost_zero({x, y}), do: Geo2d.Utils.is_zero(x) and Geo2d.Utils.is_zero(y)
+  @spec almost_zero?(Geo2d.vector2) :: boolean
+  def almost_zero?({x, y}), do: Geo2d.Utils.is_zero(x) and Geo2d.Utils.is_zero(y)
 
   @spec dot(Geo2d.vector2, Geo2d.vector2) :: float
   def dot({x1, y1}, {x2, y2}), do: x1 * x2 + y1 * y2
