@@ -40,4 +40,7 @@ defmodule Geo2d.Line2 do
   @spec is_horizontal(Geo2d.line2) :: boolean
   def is_horizontal(l), do: slope(l) == 0.0
 
+  @spec is_parallel_to(Geo2d.line2, Geo2d.line2) :: boolean
+  def is_parallel_to(l1, l2), do: slope(l1) == slope(l2)
+
 end
