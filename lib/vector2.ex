@@ -17,6 +17,10 @@ defmodule Geo2d.Vector2 do
   def create([x, y|_]), do: {x, y}
   def create([x|_]), do: {x, x}
 
+  @spec are_equal(Geo2d.vector2, Geo2d.vector2) :: boolean
+  def are_equal({x1, y1}, {x2, y2}), do: are_equal(x1, x2) and are_equal(y1, y2)
+
+
   @spec to_list(Geo2d.vector2) :: [float]
   def to_list({x, y}), do: [x, y]
 
