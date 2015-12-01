@@ -30,18 +30,6 @@ defmodule Geo2d.Point2 do
   @spec y(Geo2d.point2) :: float
   def y({_x, y}), do: y
 
-  @spec xx(Geo2d.point2) :: Geo2d.point2
-  def xx({x, _y}), do: {x, x}
-
-  @spec yy(Geo2d.point2) :: Geo2d.point2
-  def yy({_x, y}), do: {y, y}
-
-  @spec xy(Geo2d.point2) :: Geo2d.point2
-  def xy(v), do: v
-
-  @spec yx(Geo2d.point2) :: Geo2d.point2
-  def yx({x, y}), do: {y, x}
-
   @spec at(Geo2d.point2, integer) :: float
   def at({x, _y}, 0), do: x
   def at({_x, y}, 1), do: y
